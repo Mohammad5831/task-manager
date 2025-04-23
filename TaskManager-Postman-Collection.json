@@ -1,0 +1,308 @@
+{
+  "info": {
+    "name": "Task Manager API",
+    "_postman_id": "task-manager-api-collection",
+    "description": "Postman collection for Task Manager Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"09123456789\",\n  \"password\": \"123456Ab\",\n  \"role\": \"user\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"123456Ab\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/profile",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "profile"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/auth/profile",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "profile"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"phone\": \"09999999999\",\n  \"password\": \"654321Ba\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Task by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/:taskId",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            ":taskId"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/:taskId",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            ":taskId"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"taskName\": \"Updated Task\",\n  \"description\": \"Updated description\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/tasks/:taskId",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "tasks",
+            ":taskId"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Download File",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/api/download/attachments/sample.pdf",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "download",
+            "attachments",
+            "sample.pdf"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin - Get All Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/admin/users",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "users"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin - Update User Info",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/admin/update-user/:userId",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "update-user",
+            ":userId"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"updated@example.com\",\n  \"phone\": \"09110000000\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Admin - Change User Role",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/admin/update-user-role/:userId",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "update-user-role",
+            ":userId"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"role\": \"admin\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Admin - Delete User",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/admin/delete-user/:userId",
+          "host": [
+            "http://localhost:5000"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "delete-user",
+            ":userId"
+          ]
+        }
+      }
+    }
+  ]
+}
